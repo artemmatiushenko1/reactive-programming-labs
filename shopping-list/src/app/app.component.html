@@ -1,15 +1,15 @@
-<div class="page-header">
+<div class="page-header mb-5 px-3 pt-3">
   <h1>Shopping list</h1>
 </div>
 <div class="panel">
-  <div class="form-inline">
+  <div class="d-flex col-md-8 align-items-center mb-3 gap-3 px-3">
     <div class="form-group">
-      <div class="col-md-8">
+      <div>
         <input class="form-control" [(ngModel)]="text" placeholder="Назва" />
       </div>
     </div>
     <div class="form-group">
-      <div class="col-md-6">
+      <div>
         <input
           type="number"
           class="form-control"
@@ -19,10 +19,8 @@
       </div>
     </div>
     <div class="form-group">
-      15
-
       <div class="col-md-offset-2 col-md-8">
-        <button class="btn btn-default" (click)="addItem(text, price)">
+        <button class="btn btn-primary" (click)="addItem(text, price)">
           Додати
         </button>
       </div>
