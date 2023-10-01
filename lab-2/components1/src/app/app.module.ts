@@ -8,6 +8,7 @@ import { Task2Component } from './task2/task2.component';
 import { Task3Component } from './task3/task3.component';
 import { Task4Component } from './task4/task4.component';
 import { Task4ChildComponent } from './task4/task4-child.component';
+import { TaskWrapperComponent } from './task-wrapper/task-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { Task4ChildComponent } from './task4/task4-child.component';
     Task3Component,
     Task4Component,
     Task4ChildComponent,
+    TaskWrapperComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
