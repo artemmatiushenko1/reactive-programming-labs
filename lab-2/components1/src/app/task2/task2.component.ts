@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-task2',
-  templateUrl: './task2.component.html',
+  template: `
+    <h2>Hello Angular</h2>
+    <p>Angular 16 представляє модульну архітектуру додатку</p>
+  `,
   styles: [
     `
       h2,
