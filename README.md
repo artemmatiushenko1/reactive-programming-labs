@@ -1,1 +1,1 @@
-🚀 Reactive Programmin Labs - Angular
+🚀 Reactive Programming Labs - Angular
