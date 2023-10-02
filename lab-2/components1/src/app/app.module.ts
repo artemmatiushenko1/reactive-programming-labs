@@ -11,6 +11,8 @@ import { Task4ChildComponent } from './task4/task4-child.component';
 import { TaskWrapperComponent } from './task-wrapper/task-wrapper.component';
 import { Task5Component } from './task5/task5.component';
 import { Task5ChildComponent } from './task5/task5-child.component';
+import { Task6Component } from './task6/task6.component';
+import { Task6ChildComponent } from './task6/task6-child.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { Task5ChildComponent } from './task5/task5-child.component';
     TaskWrapperComponent,
     Task5Component,
     Task5ChildComponent,
+    Task6Component,
+    Task6ChildComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
