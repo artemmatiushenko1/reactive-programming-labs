@@ -1,4 +1,6 @@
-<h3>
-  {{ username }}: список справ
-  <h5>{{ itemCount }} елементів</h5>
-</h3>
+<mat-toolbar color="primary" class="mat-elevation-z3">
+  <span>{{ username }}: список справ</span>
+  <mat-icon matBadge="{{ itemCount }}" matBadgeColor="accent">
+    checklist
+  </mat-icon>
+</mat-toolbar>
