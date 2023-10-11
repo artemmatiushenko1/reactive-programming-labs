@@ -7,6 +7,8 @@ import { TodoItem, TodoList } from './models';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  showComplete: boolean = false;
+
   private list = new TodoList('Тарас', [
     new TodoItem('Зробити пробіжку', true),
     new TodoItem('Купити квіти'),
@@ -22,7 +24,9 @@ export class AppComponent {
   }
 
   get items(): readonly TodoItem[] {
-    return this.list.items.filter((item) => !item.complete);
+    return this.list.items.filter(
+      (item) => this.showComplete || !item.complete
+    );
   }
 
   addItem(newItem: string) {
