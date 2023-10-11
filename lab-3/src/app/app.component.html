@@ -6,6 +6,21 @@
     checklist
   </mat-icon>
 </mat-toolbar>
+<div class="inputContainer">
+  <mat-form-field class="fullWidth">
+    <mat-label style="padding-left: 5px">Нова справа</mat-label>
+    <input matInput placeholder="Enter to-do description" #todoText />
+    <button
+      matSuffix
+      mat-raised-button
+      color="accent"
+      class="addButton"
+      (click)="addItem(todoText.value); todoText.value = ''"
+    >
+      Додати
+    </button>
+  </mat-form-field>
+</div>
 <div class="tableContainer">
   <table mat-table [dataSource]="items" class="mat-elevation-z3 fullWidth">
     <ng-container matColumnDef="id">

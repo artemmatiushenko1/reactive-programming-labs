@@ -9,3 +9,11 @@
 .fullWidth {
   width: 100%;
 }
+
+.inputContainer {
+  margin: 15px 15px 5px;
+}
+
+.addButton {
+  margin: 5px;
+}
