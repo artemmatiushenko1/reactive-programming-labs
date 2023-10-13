@@ -8,7 +8,12 @@
 </mat-toolbar>
 <app-todo-form (onFinish)="handleTodoFormFinish($event)"></app-todo-form>
 <div class="tableContainer">
-  <table mat-table [dataSource]="items" class="mat-elevation-z3 fullWidth">
+  <table
+    mat-table
+    [dataSource]="items"
+    class="mat-elevation-z3 fullWidth"
+    [style.tableLayout]="'fixed'"
+  >
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>No</th>
       <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
