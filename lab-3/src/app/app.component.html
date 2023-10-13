@@ -6,21 +6,7 @@
     checklist
   </mat-icon>
 </mat-toolbar>
-<div class="inputContainer">
-  <mat-form-field class="fullWidth">
-    <mat-label style="padding-left: 5px">Нова справа</mat-label>
-    <input matInput placeholder="Enter to-do description" #todoText />
-    <button
-      matSuffix
-      mat-raised-button
-      color="accent"
-      class="addButton"
-      (click)="addItem(todoText.value); todoText.value = ''"
-    >
-      Додати
-    </button>
-  </mat-form-field>
-</div>
+<app-todo-form (onFinish)="handleTodoFormFinish($event)"></app-todo-form>
 <div class="tableContainer">
   <table mat-table [dataSource]="items" class="mat-elevation-z3 fullWidth">
     <ng-container matColumnDef="id">
@@ -29,18 +15,29 @@
     </ng-container>
     <ng-container matColumnDef="task">
       <th mat-header-cell *matHeaderCellDef>Task</th>
-      <td mat-cell *matCellDef="let item">{{ item.task }}</td>
+      <td mat-cell *matCellDef="let item">{{ item.title }}</td>
+    </ng-container>
+    <ng-container matColumnDef="deadlineDate">
+      <th mat-header-cell *matHeaderCellDef>Deadline Date</th>
+      <td mat-cell *matCellDef="let item">
+        {{ item.deadlineDate | date : "yyyy-MM-dd" }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="done">
       <th mat-header-cell *matHeaderCellDef>Done</th>
       <td mat-cell *matCellDef="let item">
-        <mat-checkbox [(ngModel)]="item.complete" color="primary">
-          <!-- {{ item.complete }} -->
+        <mat-checkbox [(ngModel)]="item.completed" color="primary">
         </mat-checkbox>
       </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['id', 'task', 'done']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['id', 'task', 'done']"></tr>
+    <tr
+      mat-header-row
+      *matHeaderRowDef="['id', 'task', 'deadlineDate', 'done']"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['id', 'task', 'deadlineDate', 'done']"
+    ></tr>
   </table>
 </div>
 <div class="toggleContainer">

@@ -1,0 +1,36 @@
+<form
+  class="formWrapper"
+  [formGroup]="todoForm"
+  #formDirective="ngForm"
+  (ngSubmit)="handleFormSubmit(formDirective)"
+>
+  <mat-form-field>
+    <mat-label style="padding-left: 5px">Description</mat-label>
+    <input
+      matInput
+      placeholder="Enter description"
+      #todoText
+      formControlName="title"
+      required
+    />
+    <mat-error *ngIf="title?.errors?.['required']"
+      >Description is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a deadline date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="deadlineDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button
+    type="submit"
+    matSuffix
+    mat-raised-button
+    color="accent"
+    class="addButton"
+  >
+    <mat-icon>add</mat-icon> Додати
+  </button>
+</form>

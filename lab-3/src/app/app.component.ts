@@ -7,31 +7,32 @@ import { TodoItem, TodoList } from './models';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  showComplete: boolean = false;
-
   private list = new TodoList('Тарас', [
-    new TodoItem('Зробити пробіжку', true),
+    new TodoItem('Зробити пробіжку', undefined, true),
     new TodoItem('Купити квіти'),
     new TodoItem('Забрати квитки'),
   ]);
+
+  showComplete: boolean = false;
 
   get username(): string {
     return this.list.user;
   }
 
   get itemCount(): number {
-    return this.list.items.filter((item) => !item.complete).length;
+    return this.list.items.filter((item) => !item.completed).length;
   }
 
   get items(): readonly TodoItem[] {
     return this.list.items.filter(
-      (item) => this.showComplete || !item.complete
+      (item) => this.showComplete || !item.completed
     );
   }
 
-  addItem(newItem: string) {
-    if (newItem != '') {
-      this.list.addItem(newItem);
-    }
+  handleTodoFormFinish(
+    formValues: Pick<TodoItem, 'title' | 'deadlineDate'>
+  ): void {
+    const { title, deadlineDate } = formValues;
+    this.list.addItem(new TodoItem(title, deadlineDate));
   }
 }

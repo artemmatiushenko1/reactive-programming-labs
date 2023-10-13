@@ -1,3 +1,7 @@
 export class TodoItem {
-  constructor(public task: string, public complete: boolean = false) {}
+  constructor(
+    public title: string,
+    public deadlineDate?: Date,
+    public completed: boolean = false
+  ) {}
 }
