@@ -29,7 +29,9 @@ export class AppComponent {
     );
   }
 
-  formatDate(date: Date) {
+  formatDate(date?: Date) {
+    if (!date) return;
+
     return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: '2-digit',
