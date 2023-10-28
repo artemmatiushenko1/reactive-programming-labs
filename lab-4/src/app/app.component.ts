@@ -31,4 +31,8 @@ export class AppComponent {
   handlePostFormFinish(newPost: Post) {
     this.posts.unshift(newPost);
   }
+
+  handlePostDelete(id: string) {
+    this.posts = this.posts.filter((post) => post.id !== id);
+  }
 }
