@@ -13,6 +13,8 @@ export class AppComponent {
     new TodoItem('Забрати квитки'),
   ]);
 
+  columnsToDisplay = ['id', 'task', 'deadlineDate', 'done'];
+
   showComplete: boolean = false;
 
   get username(): string {

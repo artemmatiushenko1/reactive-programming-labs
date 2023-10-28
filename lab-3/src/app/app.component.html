@@ -35,14 +35,8 @@
         </mat-checkbox>
       </td>
     </ng-container>
-    <tr
-      mat-header-row
-      *matHeaderRowDef="['id', 'task', 'deadlineDate', 'done']"
-    ></tr>
-    <tr
-      mat-row
-      *matRowDef="let row; columns: ['id', 'task', 'deadlineDate', 'done']"
-    ></tr>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
   </table>
 </div>
 <div class="toggleContainer">
