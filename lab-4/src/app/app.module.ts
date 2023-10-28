@@ -25,6 +25,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { PostService } from './post.service';
 
 registerLocaleData(en);
 
@@ -49,7 +50,11 @@ registerLocaleData(en);
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [
+    PostService,
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: Storage, useValue: window.localStorage },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

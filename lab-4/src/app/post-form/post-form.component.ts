@@ -6,7 +6,7 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
-import { Post } from '../models/post/post.model';
+import { CreatePostPayload } from '../types/create-post-payload';
 
 interface PostForm {
   title: FormControl<string>;
@@ -37,7 +37,7 @@ export class PostFormComponent {
     });
   }
 
-  @Output() onFinish = new EventEmitter<Post>();
+  @Output() onFinish = new EventEmitter<CreatePostPayload>();
 
   handleFormSubmit() {
     if (!this.postForm.valid) {
@@ -51,11 +51,9 @@ export class PostFormComponent {
       return;
     }
 
-    const newPostPayload = this.postForm.getRawValue();
+    const newPostPayload: CreatePostPayload = this.postForm.getRawValue();
 
-    this.onFinish.emit(
-      new Post({ id: crypto.randomUUID(), ...newPostPayload })
-    );
+    this.onFinish.emit(newPostPayload);
 
     this.formDirective.resetForm();
   }
