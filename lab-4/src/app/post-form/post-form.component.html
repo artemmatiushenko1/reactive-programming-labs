@@ -1,10 +1,41 @@
-<form class="post-form">
+<form
+  nz-form
+  nzLayout="vertical"
+  class="post-form"
+  [formGroup]="postForm"
+  (ngSubmit)="handleFormSubmit()"
+>
   <h1>Post form</h1>
-  <nz-space nzDirection="vertical" class="controls-wrapper" [nzSize]="10">
-    <input *nzSpaceItem nz-input placeholder="Title" />
-    <textarea *nzSpaceItem nz-input placeholder="Content"></textarea>
-    <button *nzSpaceItem nz-button nzType="primary" class="create-button">
-      <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Create
-    </button>
-  </nz-space>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzRequired>Title</nz-form-label>
+    <nz-form-control [nzErrorTip]="titleErrorTemplate">
+      <input nz-input formControlName="title" placeholder="Enter post title" />
+      <ng-template #titleErrorTemplate let-control>
+        <ng-container *ngIf="control?.errors?.['required']">
+          Please input post title!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzRequired>Content</nz-form-label>
+    <nz-form-control [nzErrorTip]="contentErrorTemplate">
+      <input
+        nz-input
+        formControlName="content"
+        placeholder="Enter post content"
+      />
+      <ng-template #contentErrorTemplate let-control>
+        <ng-container *ngIf="control?.errors?.['required']">
+          Please provide post content!
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button type="submit" nz-button nzType="primary" class="create-button">
+    <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Create
+  </button>
 </form>
