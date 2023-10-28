@@ -1,3 +1,3 @@
-import { Post } from '../models/post/post.model';
+import { Post } from '../post.model';
 
 export type CreatePostPayload = Pick<Post, 'title' | 'content'>;

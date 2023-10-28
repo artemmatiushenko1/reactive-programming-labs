@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from './models/post/post.model';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { PostService } from './post.service';
 import { CreatePostPayload } from './types/create-post-payload';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
