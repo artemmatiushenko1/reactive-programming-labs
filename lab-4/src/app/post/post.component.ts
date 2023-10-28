@@ -6,6 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent {
+  longContentSymbolsThreshold = 20;
+
   @Input() 'id': string;
   @Input() 'title': string;
   @Input() 'content': string;

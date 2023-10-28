@@ -2,7 +2,9 @@
   {{ content }}
 </nz-card>
 <ng-template #extraTemplate>
-  <nz-tag nzColor="processing">Long Post</nz-tag>
+  <nz-tag nzColor="processing">{{
+    content.length > longContentSymbolsThreshold ? "Long Post" : "Short Post"
+  }}</nz-tag>
   <button nz-button nzType="text" nz-dropdown [nzDropdownMenu]="menu">
     <span nz-icon nzType="ellipsis" nzTheme="outline"></span>
   </button>
