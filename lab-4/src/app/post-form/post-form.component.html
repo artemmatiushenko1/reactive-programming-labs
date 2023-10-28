@@ -22,11 +22,11 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="24" nzRequired>Content</nz-form-label>
     <nz-form-control [nzErrorTip]="contentErrorTemplate">
-      <input
+      <textarea
         nz-input
         formControlName="content"
         placeholder="Enter post content"
-      />
+      ></textarea>
       <ng-template #contentErrorTemplate let-control>
         <ng-container *ngIf="control?.errors?.['required']">
           Please provide post content!

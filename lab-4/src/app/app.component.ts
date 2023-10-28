@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from './models/post/post.model';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +29,15 @@ export class AppComponent {
     },
   ];
 
+  constructor(private message: NzMessageService) {}
+
   handlePostFormFinish(newPost: Post) {
     this.posts.unshift(newPost);
+    this.message.success('New post created successfully!');
   }
 
   handlePostDelete(id: string) {
     this.posts = this.posts.filter((post) => post.id !== id);
+    this.message.info('Post deleted successfully!');
   }
 }

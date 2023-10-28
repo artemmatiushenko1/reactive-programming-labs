@@ -24,6 +24,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 registerLocaleData(en);
 
@@ -44,6 +45,7 @@ registerLocaleData(en);
     NzGridModule,
     NzFormModule,
     NzEmptyModule,
+    NzMessageModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],
