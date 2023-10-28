@@ -23,6 +23,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 registerLocaleData(en);
 
@@ -42,6 +43,7 @@ registerLocaleData(en);
     NzTagModule,
     NzGridModule,
     NzFormModule,
+    NzEmptyModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],
