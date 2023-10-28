@@ -27,4 +27,8 @@ export class AppComponent {
         'If you are a developer, you can understand the importance of a platform that speeds up the development process, significantly reducing coding time and effort.',
     },
   ];
+
+  handlePostFormFinish(newPost: Post) {
+    this.posts.unshift(newPost);
+  }
 }

@@ -35,7 +35,13 @@
     </nz-form-control>
   </nz-form-item>
 
-  <button type="submit" nz-button nzType="primary" class="create-button">
+  <button
+    type="submit"
+    nz-button
+    nzType="primary"
+    class="create-button"
+    [disabled]="!postForm.valid"
+  >
     <span nz-icon nzType="plus-circle" nzTheme="outline"></span>Create
   </button>
 </form>
