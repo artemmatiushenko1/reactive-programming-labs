@@ -17,6 +17,10 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 registerLocaleData(en);
 
@@ -30,6 +34,10 @@ registerLocaleData(en);
     NzButtonModule,
     NzIconModule,
     NzSpaceModule,
+    NzDividerModule,
+    NzCardModule,
+    NzDropDownModule,
+    NzTagModule,
     HttpClientModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
