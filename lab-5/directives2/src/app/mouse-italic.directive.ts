@@ -1,0 +1,24 @@
+import { Directive, HostBinding, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appMouseItalic]',
+})
+export class MouseItalicDirective {
+  private fontStyle = 'normal';
+
+  @HostBinding('style.font-style') get getFontStyle() {
+    return this.fontStyle;
+  }
+
+  @HostBinding('style.cursor') get getCursor() {
+    return 'pointer';
+  }
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.fontStyle = 'italic';
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.fontStyle = 'normal';
+  }
+}
