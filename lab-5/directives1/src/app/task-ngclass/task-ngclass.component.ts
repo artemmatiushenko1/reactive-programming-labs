@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task-ngclass',
@@ -11,6 +11,12 @@ import { Component } from '@angular/core';
     <div [ngClass]="currentClasses">
       <h1>Hello Angular</h1>
       <p>Angular представляє модульну архітектуру додатку</p>
+    </div>
+    <!-- <div [class.invisible]="visibility"> -->
+    <!-- <div [style.display]="visibility?'block':'none'"> -->
+    <div [ngClass]="{ invisible: visibility }">
+      <h1>Вивчаємо директиви</h1>
+      <p>Використання динамічної зміни стилів</p>
     </div>`,
   styles: [
     `
@@ -25,6 +31,9 @@ import { Component } from '@angular/core';
       .navyColor {
         color: navy;
       }
+      .invisible {
+        display: none;
+      }
     `,
   ],
 })
@@ -37,4 +46,6 @@ export class TaskNgclassComponent {
     verdanaFont: this.isVerdana,
     navyColor: this.isNavy,
   };
+
+  @Input({ required: true }) 'visibility': boolean;
 }
