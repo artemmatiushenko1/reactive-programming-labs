@@ -2,9 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <p *appOtherIf="condition" class="otherif a">(A) Condition is false.</p>
+    <p *appOtherIf="!condition" class=" otherif b">
+      (B) Although the condition is true, this paragraph is displayed.
+    </p>
+    <button (click)="handleToggleButtonClick()">Toggle</button>
+    <span>Current state: {{ condition }}</span>
+  `,
 })
 export class AppComponent {
-  title = 'directives6';
+  condition = false;
+
+  handleToggleButtonClick() {
+    console.log('here');
+    this.condition = !this.condition;
+  }
 }
