@@ -4,6 +4,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  OnChanges,
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
@@ -15,7 +16,7 @@ interface ISumContext {
 @Directive({
   selector: '[sum]',
 })
-export class SumDirective implements OnDestroy, DoCheck {
+export class SumDirective implements OnDestroy, OnChanges {
   constructor(
     private viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<ISumContext>
@@ -24,7 +25,7 @@ export class SumDirective implements OnDestroy, DoCheck {
   @Input({ required: true }) 'sumFrom': number;
   @Input({ required: true }) 'sumAnd': number;
 
-  ngDoCheck() {
+  ngOnChanges() {
     this.createView();
   }
 
