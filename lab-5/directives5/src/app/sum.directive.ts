@@ -1,9 +1,7 @@
 import {
   Directive,
-  DoCheck,
   Input,
   OnDestroy,
-  OnInit,
   OnChanges,
   TemplateRef,
   ViewContainerRef,
