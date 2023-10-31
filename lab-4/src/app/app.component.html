@@ -1,5 +1,15 @@
 <div class="app-wrapper">
-  <h1>Blog</h1>
+  <div nz-row nzJustify="space-between" nzAlign="middle">
+    <div nz-col>
+      <h1>Blog</h1>
+    </div>
+    <div nz-col>
+      <nz-tag nzColor="processing">
+        <span nz-icon nzType="calendar" nzTheme="outline"></span>
+        {{ currentDateTime$ | async | date : "dd.MM.yyyy HH:mm:ss" }}
+      </nz-tag>
+    </div>
+  </div>
   <app-post-form (onFinish)="handlePostFormFinish($event)"></app-post-form>
   <nz-divider></nz-divider>
   <ng-container *ngIf="posts.length > 0; else emptyTemplate">
