@@ -12,7 +12,7 @@ import { Observable, interval, map } from 'rxjs';
     <p>{{ users | join }}</p>
     <hr />
     <p>Модель: {{ phone | async }}</p>
-    <button (click)="showPhones()">Посмотреть модели</button>
+    <button (click)="showPhones()">Переглянути моделі</button>
   `,
 })
 export class AppComponent {
