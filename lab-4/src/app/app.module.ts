@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostFormComponent } from './post-form/post-form.component';
@@ -33,7 +33,6 @@ registerLocaleData(en);
   declarations: [AppComponent, PostFormComponent, PostComponent],
   imports: [
     BrowserModule,
-    FormsModule,
     BrowserAnimationsModule,
     NzInputModule,
     NzButtonModule,
