@@ -12,9 +12,26 @@
   </div>
   <app-post-form (onFinish)="handlePostFormFinish($event)"></app-post-form>
   <nz-divider></nz-divider>
-  <ng-container *ngIf="posts.length > 0; else emptyTemplate">
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input
+      nz-input
+      type="text"
+      placeholder="Input search text"
+      [(ngModel)]="searchQuery"
+    />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <span nz-icon nzType="search"></span>
+  </ng-template>
+  <ng-container
+    *ngIf="(posts | postFilter : searchQuery).length > 0; else emptyTemplate"
+  >
     <div nz-row [nzGutter]="[10, 10]">
-      <div nz-col nzSpan="24" *ngFor="let post of posts">
+      <div
+        nz-col
+        nzSpan="24"
+        *ngFor="let post of posts | postFilter : searchQuery"
+      >
         <app-post
           [id]="post.id"
           [title]="post.title"
@@ -28,7 +45,11 @@
     <nz-empty
       style="color: rgba(0, 0, 0, 0.25)"
       nzNotFoundImage="simple"
-      nzNotFoundContent="No post here yet. Create a post using a form above."
+      [nzNotFoundContent]="
+        searchQuery
+          ? 'Nothing was found.'
+          : 'No post here yet. Create a post using a form above.'
+      "
     ></nz-empty>
   </ng-template>
 </div>

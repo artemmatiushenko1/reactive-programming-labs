@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostFormComponent } from './post-form/post-form.component';
@@ -26,11 +26,17 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { PostService } from './post.service';
+import { PostFilterPipe } from './post-filter.pipe';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, PostFormComponent, PostComponent],
+  declarations: [
+    AppComponent,
+    PostFormComponent,
+    PostComponent,
+    PostFilterPipe,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -48,6 +54,7 @@ registerLocaleData(en);
     NzMessageModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     PostService,
