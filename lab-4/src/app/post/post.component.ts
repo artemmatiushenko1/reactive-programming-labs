@@ -21,6 +21,7 @@ export class PostComponent implements OnDestroy {
   @Input() 'id': string;
   @Input() 'title': string;
   @Input() 'content': string;
+  @Input() 'createdAt': string;
 
   @Output() onDelete = new EventEmitter<string>();
 

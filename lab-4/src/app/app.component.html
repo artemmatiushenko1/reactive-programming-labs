@@ -6,7 +6,7 @@
     <div nz-col>
       <nz-tag nzColor="processing">
         <span nz-icon nzType="calendar" nzTheme="outline"></span>
-        {{ currentDateTime$ | async | date : "dd.MM.yyyy HH:mm:ss" }}
+        {{ currentDateTime$ | async | date : dateFormatPattern }}
       </nz-tag>
     </div>
   </div>
@@ -36,6 +36,7 @@
           [id]="post.id"
           [title]="post.title"
           [content]="post.content"
+          [createdAt]="(post.createdAt | date : dateFormatPattern)!"
           (onDelete)="handlePostDelete(post.id)"
         ></app-post>
       </div>

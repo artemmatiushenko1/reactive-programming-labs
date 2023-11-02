@@ -13,6 +13,7 @@ import { Observable, interval, map, startWith } from 'rxjs';
 export class AppComponent implements OnInit {
   posts: Post[] = [];
   searchQuery: string | null = null;
+  dateFormatPattern = 'dd.MM.yyyy HH:mm:ss';
 
   'currentDateTime$': Observable<Date>;
 

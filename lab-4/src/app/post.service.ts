@@ -22,7 +22,11 @@ export class PostService {
   }
 
   createPost(postPayload: CreatePostPayload) {
-    const newPost = new Post({ id: crypto.randomUUID(), ...postPayload });
+    const newPost = new Post({
+      id: crypto.randomUUID(),
+      createdAt: new Date(),
+      ...postPayload,
+    });
     this.items = [newPost, ...this.items];
 
     return newPost;
