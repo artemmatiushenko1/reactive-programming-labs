@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 import { Phone } from './phone.model';
+import { LogService } from './log.service';
 
 @Component({
   selector: 'app-root',
-  providers: [DataService],
+  providers: [DataService, LogService],
   template: `
     <div class="row">
       <input
