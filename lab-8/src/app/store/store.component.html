@@ -1,11 +1,20 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="bg-dark text-white p-2">
-      <span class="navbar-brand ml-2">SPORTS STORE</span>
-    </div>
-  </div>
-  <div class="row text-white">
-    <div class="col-3 bg-info p-2">{{ categories.length }} Categories</div>
-    <div class="col-9 bg-success p-2">{{ products.length }} Products</div>
-  </div>
-</div>
+<nz-layout class="layout">
+  <nz-header class="header">SPORTS STORE</nz-header>
+  <nz-layout class="layout-inner">
+    <nz-sider nzTheme="light">{{ categories.length }} Categories</nz-sider>
+    <nz-content>
+      <div nz-row [nzGutter]="[0, 20]">
+        <div nz-col nzSpan="24" *ngFor="let product of products">
+          <nz-card nzTitle="{{ product.name }}" [nzExtra]="extraTemplate">
+            {{ product.description }}
+          </nz-card>
+          <ng-template #extraTemplate>
+            <nz-tag>
+              {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
+            </nz-tag>
+          </ng-template>
+        </div>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

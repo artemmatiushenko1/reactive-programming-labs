@@ -5,6 +5,28 @@ import { ProductRepository } from '../model/product.repository';
 @Component({
   selector: 'store',
   templateUrl: './store.component.html',
+  styles: [
+    `
+      .layout {
+        height: 100vh;
+      }
+
+      .layout-inner {
+        flex: 1;
+        height: 0;
+        overflow: hidden;
+      }
+
+      nz-header {
+        color: #fff;
+      }
+
+      nz-content {
+        padding: 30px;
+        overflow: auto;
+      }
+    `,
+  ],
 })
 export class StoreComponent {
   constructor(private repository: ProductRepository) {}
