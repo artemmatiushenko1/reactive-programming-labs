@@ -25,17 +25,29 @@ import { ProductRepository } from '../model/product.repository';
         padding: 30px;
         overflow: auto;
       }
+
+      .categories-group,
+      .categories-group nz-space,
+      .categories-group nz-space label {
+        width: 100%;
+      }
     `,
   ],
 })
 export class StoreComponent {
+  selectedCategory?: string;
+
   constructor(private repository: ProductRepository) {}
 
   get products(): Product[] {
-    return this.repository.getProducts();
+    return this.repository.getProducts(this.selectedCategory);
   }
 
   get categories(): string[] {
     return this.repository.getCategories();
+  }
+
+  handleCategoryChange(newCategory?: string) {
+    this.selectedCategory = newCategory;
   }
 }

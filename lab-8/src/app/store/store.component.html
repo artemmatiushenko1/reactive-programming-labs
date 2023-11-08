@@ -1,7 +1,23 @@
 <nz-layout class="layout">
   <nz-header class="header">SPORTS STORE</nz-header>
   <nz-layout class="layout-inner">
-    <nz-sider nzTheme="light">{{ categories.length }} Categories</nz-sider>
+    <nz-sider nzTheme="light">
+      <nz-radio-group
+        class="categories-group"
+        [(ngModel)]="selectedCategory"
+        nzSize="large"
+        nzButtonStyle="solid"
+      >
+        <nz-space nzDirection="vertical">
+          <label *nzSpaceItem nz-radio-button [nzValue]="">Home</label>
+          <ng-container *ngFor="let category of categories">
+            <label *nzSpaceItem nz-radio-button [nzValue]="category">
+              {{ category }}
+            </label>
+          </ng-container>
+        </nz-space>
+      </nz-radio-group>
+    </nz-sider>
     <nz-content>
       <div nz-row [nzGutter]="[0, 20]">
         <div nz-col nzSpan="24" *ngFor="let product of products">
