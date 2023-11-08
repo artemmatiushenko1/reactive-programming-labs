@@ -10,6 +10,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { CounterDirective } from './counter.directive';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzSpaceModule,
     NzSelectModule,
   ],
-  declarations: [StoreComponent],
+  declarations: [StoreComponent, CounterDirective],
   exports: [StoreComponent],
 })
 export class StoreModule {}

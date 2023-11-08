@@ -41,7 +41,7 @@
         <div nz-row nzJustify="end" nzGutter="20" nzAlign="middle">
           <div nz-col>
             <nz-radio-group [(ngModel)]="selectedPage" nzSize="large">
-              <ng-container *ngFor="let page of pageNumbers">
+              <ng-container *counter="let page of pageCount">
                 <label nz-radio-button [nzValue]="page">
                   {{ page }}
                 </label>
@@ -58,6 +58,7 @@
               </ng-container>
             </nz-select>
           </div>
+          <div>{{ pageCount }}</div>
         </div>
       </nz-footer>
     </nz-layout>
