@@ -18,19 +18,48 @@
         </nz-space>
       </nz-radio-group>
     </nz-sider>
-    <nz-content>
-      <div nz-row [nzGutter]="[0, 20]">
-        <div nz-col nzSpan="24" *ngFor="let product of products">
-          <nz-card nzTitle="{{ product.name }}" [nzExtra]="extraTemplate">
-            {{ product.description }}
-          </nz-card>
-          <ng-template #extraTemplate>
-            <nz-tag>
-              {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
-            </nz-tag>
-          </ng-template>
+    <nz-layout>
+      <nz-content>
+        <div nz-row [nzGutter]="[0, 20]">
+          <div nz-col nzSpan="24" *ngFor="let product of products">
+            <nz-card
+              nzTitle="{{ product.name }}"
+              [nzExtra]="extraTemplate"
+              nzHoverable="true"
+            >
+              {{ product.description }}
+            </nz-card>
+            <ng-template #extraTemplate>
+              <nz-tag>
+                {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
+              </nz-tag>
+            </ng-template>
+          </div>
         </div>
-      </div>
-    </nz-content>
+      </nz-content>
+      <nz-footer>
+        <div nz-row nzJustify="end" nzGutter="20" nzAlign="middle">
+          <div nz-col>
+            <nz-radio-group [(ngModel)]="selectedPage" nzSize="large">
+              <ng-container *ngFor="let page of pageNumbers">
+                <label nz-radio-button [nzValue]="page">
+                  {{ page }}
+                </label>
+              </ng-container>
+            </nz-radio-group>
+          </div>
+          <div nz-col>
+            <nz-select nzSize="large" [(ngModel)]="productsPerPage">
+              <ng-container *ngFor="let option of productsPerPageOptions">
+                <nz-option
+                  [nzValue]="option"
+                  nzLabel="{{ option }} per Page"
+                ></nz-option>
+              </ng-container>
+            </nz-select>
+          </div>
+        </div>
+      </nz-footer>
+    </nz-layout>
   </nz-layout>
 </nz-layout>

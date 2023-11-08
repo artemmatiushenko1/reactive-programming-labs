@@ -9,6 +9,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
     NzGridModule,
     NzRadioModule,
     NzSpaceModule,
+    NzSelectModule,
   ],
   declarations: [StoreComponent],
   exports: [StoreComponent],
