@@ -14,6 +14,9 @@ import { Component } from '@angular/core';
     <div *sum="let result; from: numberA; and: numberB">
       Result: {{ result }}
     </div>
+    <ng-template sum let-result [sumFrom]="numberA" [sumAnd]="numberB">
+      Result: {{ result }}
+    </ng-template>
   `,
 })
 export class AppComponent {

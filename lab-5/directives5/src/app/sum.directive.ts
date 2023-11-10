@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 interface ISumContext {
-  $implicit: number;
+  $implicit: number | null;
 }
 
 @Directive({
@@ -31,10 +31,17 @@ export class SumDirective implements OnDestroy, OnChanges {
     this.viewContainer.clear();
   }
 
+  private sum(numA: number, numB: number): number {
+    return numA + numB;
+  }
+
   private createView() {
     this.viewContainer.clear();
     this.viewContainer.createEmbeddedView(this.templateRef, {
-      $implicit: this.sumFrom && this.sumAnd ? this.sumFrom + this.sumAnd : '',
+      $implicit:
+        this.sumFrom && this.sumAnd
+          ? this.sum(this.sumFrom, this.sumAnd)
+          : null,
     });
   }
 }
