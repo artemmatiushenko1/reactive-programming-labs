@@ -10,7 +10,7 @@
       >
         <nz-space nzDirection="vertical">
           <label *nzSpaceItem nz-radio-button [nzValue]="">Home</label>
-          @for (category of categories; track category) {
+          @for (category of categories; track $index) {
           <label *nzSpaceItem nz-radio-button [nzValue]="category">
             {{ category }}
           </label>
@@ -52,7 +52,7 @@
           </div>
           <div nz-col>
             <nz-select nzSize="large" [(ngModel)]="productsPerPage">
-              @for (option of productsPerPageOptions; track option) {
+              @for (option of productsPerPageOptions; track $index) {
               <nz-option
                 [nzValue]="option"
                 nzLabel="{{ option }} per Page"
