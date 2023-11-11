@@ -4,7 +4,8 @@
       nzSize="large"
       nzButtonStyle="solid"
       class="categories-group"
-      [(ngModel)]="selectedCategory"
+      [ngModel]="selectedCategory"
+      (ngModelChange)="selectedCategory = $event; selectedPage = 1"
     >
       <nz-space nzDirection="vertical">
         <label *nzSpaceItem nz-radio-button [nzValue]="">Home</label>

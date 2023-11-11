@@ -1,68 +1,79 @@
-<h2 class="text-center">Your Cart</h2>
-<table class="table table-bordered table-striped p-2">
-  <thead>
-    <tr>
-      <th>Quantity</th>
-      <th>Product</th>
-      <th class="text-end">Price</th>
-      <th class="text-end">Subtotal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngIf="cart.lines.length == 0">
-      <td colspan="4" class="text-center">Your cart is empty</td>
-    </tr>
-    <tr *ngFor="let line of cart.lines">
-      <td>
-        <input
-          type="number"
-          class="form-control-sm"
-          style="width: 5em"
-          [value]="line.quantity"
-          (change)="
-            cart.updateQuantity(line.product, $any($event).target.value)
-          "
-        />
-      </td>
-      <td>{{ line.product.name }}</td>
-      <td class="text-end">
-        {{ line.product.price | currency : "USD" : "symbol" : "2.2-2" }}
-      </td>
-      <td class="text-end">
-        {{ line.lineTotal | currency : "USD" : "symbol" : "2.2-2" }}
-      </td>
-      <td class="text-center">
-        <button
-          class="btn btn-sm btn-danger"
-          (click)="cart.removeLine(line.product.id ?? 0)"
-        >
-          Remove
-        </button>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3" class="text-end">Total:</td>
-      <td class="text-end">
-        {{ cart.cartPrice | currency : "USD" : "symbol" : "2.2-2" }}
-      </td>
-    </tr>
-  </tfoot>
-</table>
-<div class="row">
-  <div class="col">
-    <div class="text-center">
-      <button class="btn btn-primary m-1" routerLink="/store">
+<div class="content">
+  <h2 class="text-center">Your Cart</h2>
+  <nz-table
+    #basicTable
+    nzTableLayout="fixed"
+    [nzData]="cart.lines"
+    [nzFrontPagination]="false"
+  >
+    <thead>
+      <tr>
+        <th>Quantity</th>
+        <th>Product</th>
+        <th nzAlign="right">Price</th>
+        <th nzAlign="right">Subtotal</th>
+        <th nzAlign="right">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(line of cart.lines; track $index) {
+      <tr>
+        <td>
+          <nz-input-number
+            [nzMin]="1"
+            type="number"
+            style="width: 5em"
+            [ngModel]="line.quantity"
+            (ngModelChange)="cart.updateQuantity(line.product, $event)"
+          />
+        </td>
+        <td>{{ line.product.name }}</td>
+        <td nzAlign="right">
+          {{ line.product.price | currency : "USD" : "symbol" : "2.2-2" }}
+        </td>
+        <td nzAlign="right">
+          {{ line.lineTotal | currency : "USD" : "symbol" : "2.2-2" }}
+        </td>
+        <td nzAlign="center">
+          <button
+            nz-button
+            class="btn btn-sm btn-danger"
+            (click)="cart.removeLine(line.product.id ?? 0)"
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <td colspan="5" nzAlign="center">Your cart is empty</td>
+      </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" nzAlign="right">Total:</td>
+        <td nzAlign="right">
+          {{ cart.cartPrice | currency : "USD" : "symbol" : "2.2-2" }}
+        </td>
+      </tr>
+    </tfoot>
+  </nz-table>
+
+  <div nz-row nzJustify="end">
+    <nz-space>
+      <button *nzSpaceItem nz-button routerLink="/store">
         Continue Shopping
       </button>
       <button
-        class="btn btn-secondary m-1"
+        *nzSpaceItem
+        nz-button
+        nzType="primary"
         routerLink="/checkout"
         [disabled]="cart.lines.length == 0"
       >
         Checkout
       </button>
-    </div>
+    </nz-space>
   </div>
 </div>

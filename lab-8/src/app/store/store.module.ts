@@ -13,6 +13,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
 import { CounterDirective } from './counter.directive';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
@@ -38,7 +40,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
     NzIconModule,
     NzBadgeModule,
     NzButtonModule,
+    NzTableModule,
     RouterModule,
+    NzInputNumberModule,
   ],
   declarations: [
     StoreComponent,
