@@ -15,17 +15,22 @@ import { StoreComponent } from './store/store.component';
 import { CartDetailComponent } from './store/cart-detail.component';
 import { CheckoutComponent } from './store/checkout.component';
 import { StoreFirstGuard } from './store-first.guard';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { AppLayoutComponent } from './components/app-layout/app-layout.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AppLayoutComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule,
+    NzLayoutModule,
+    NzGridModule,
     RouterModule.forRoot([
       {
         path: 'store',

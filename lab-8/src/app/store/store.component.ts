@@ -8,23 +8,19 @@ import { Cart } from '../model/cart.model';
   templateUrl: './store.component.html',
   styles: [
     `
-      .layout {
-        height: 100vh;
-      }
-
-      .layout-inner {
-        flex: 1;
-        height: 0;
+      :host {
         overflow: hidden;
-      }
-
-      nz-header {
-        color: #fff;
+        height: 100%;
+        display: block;
       }
 
       nz-content {
         padding: 30px;
         overflow: auto;
+      }
+
+      .layout-inner {
+        height: 100%;
       }
 
       .categories-group,

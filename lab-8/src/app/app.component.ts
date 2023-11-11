@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  template: `
+    <app-layout>
+      <cart-summary ngProjectAs="header-extra"></cart-summary>
+      <router-outlet></router-outlet>
+    </app-layout>
+  `,
   styles: [
     `
       :host {
