@@ -3,25 +3,26 @@
   <nz-layout class="layout-inner">
     <nz-sider nzTheme="light">
       <nz-radio-group
-        class="categories-group"
-        [(ngModel)]="selectedCategory"
         nzSize="large"
         nzButtonStyle="solid"
+        class="categories-group"
+        [(ngModel)]="selectedCategory"
       >
         <nz-space nzDirection="vertical">
           <label *nzSpaceItem nz-radio-button [nzValue]="">Home</label>
-          <ng-container *ngFor="let category of categories">
-            <label *nzSpaceItem nz-radio-button [nzValue]="category">
-              {{ category }}
-            </label>
-          </ng-container>
+          @for (category of categories; track category) {
+          <label *nzSpaceItem nz-radio-button [nzValue]="category">
+            {{ category }}
+          </label>
+          }
         </nz-space>
       </nz-radio-group>
     </nz-sider>
     <nz-layout>
       <nz-content>
         <div nz-row [nzGutter]="[0, 20]">
-          <div nz-col nzSpan="24" *ngFor="let product of products">
+          @for (product of products; track product.id) {
+          <div nz-col nzSpan="24">
             <nz-card
               nzTitle="{{ product.name }}"
               [nzExtra]="extraTemplate"
@@ -35,6 +36,7 @@
               </nz-tag>
             </ng-template>
           </div>
+          }
         </div>
       </nz-content>
       <nz-footer>
@@ -50,15 +52,14 @@
           </div>
           <div nz-col>
             <nz-select nzSize="large" [(ngModel)]="productsPerPage">
-              <ng-container *ngFor="let option of productsPerPageOptions">
-                <nz-option
-                  [nzValue]="option"
-                  nzLabel="{{ option }} per Page"
-                ></nz-option>
-              </ng-container>
+              @for (option of productsPerPageOptions; track option) {
+              <nz-option
+                [nzValue]="option"
+                nzLabel="{{ option }} per Page"
+              ></nz-option>
+              }
             </nz-select>
           </div>
-          <div>{{ pageCount }}</div>
         </div>
       </nz-footer>
     </nz-layout>
