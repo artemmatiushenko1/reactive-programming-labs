@@ -12,11 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from './store/store.module';
 import { RouterModule } from '@angular/router';
 import { StoreComponent } from './store/store.component';
-import { CartDetailComponent } from './store/cart-detail.component';
-import { CheckoutComponent } from './store/checkout.component';
+import { CartDetailComponent } from './store/cart-detail/cart-detail.component';
+import { CheckoutComponent } from './store/checkout/checkout.component';
 import { StoreFirstGuard } from './store-first.guard';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { AppLayoutComponent } from './components/app-layout/app-layout.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 
 registerLocaleData(en);

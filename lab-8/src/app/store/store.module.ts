@@ -15,10 +15,10 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
 import { CounterDirective } from './counter.directive';
-import { CartSummaryComponent } from './cart-summary.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CartDetailComponent } from './cart-detail.component';
-import { CheckoutComponent } from './checkout.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { NgForm } from '@angular/forms';
-import { OrderRepository } from '../model/order.repository';
-import { Order } from '../model/order.model';
+import { OrderRepository } from '../../model/order.repository';
+import { Order } from '../../model/order.model';
 import { Component } from '@angular/core';
 @Component({
   templateUrl: './checkout.component.html',
