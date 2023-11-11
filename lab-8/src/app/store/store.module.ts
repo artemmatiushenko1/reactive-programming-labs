@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModelModule } from '../model/model.module';
 import { StoreComponent } from './store.component';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -15,6 +15,8 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 import { CounterDirective } from './counter.directive';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
@@ -43,6 +45,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
     NzTableModule,
     RouterModule,
     NzInputNumberModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
   ],
   declarations: [
     StoreComponent,

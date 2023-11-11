@@ -14,7 +14,7 @@ import { Cart } from '../../model/cart.model';
 
       .content {
         height: 100%;
-        width: 50%;
+        width: 90%;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -26,6 +26,7 @@ import { Cart } from '../../model/cart.model';
       nz-table {
         flex: 1;
         height: 0;
+        overflow-y: auto;
       }
     `,
   ],
