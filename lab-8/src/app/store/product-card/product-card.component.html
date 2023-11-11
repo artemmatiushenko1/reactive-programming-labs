@@ -1,0 +1,15 @@
+<nz-card
+  nzTitle="{{ product.name }}"
+  [nzExtra]="extraTemplate"
+  nzHoverable="true"
+>
+  {{ product.description }}
+</nz-card>
+<ng-template #extraTemplate>
+  <nz-tag>
+    {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
+  </nz-tag>
+  <button nz-button nzType="primary" (click)="onAddToCart.emit()">
+    Add to cart
+  </button>
+</ng-template>

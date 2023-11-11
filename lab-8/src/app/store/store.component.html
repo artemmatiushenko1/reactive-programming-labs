@@ -20,27 +20,12 @@
     <nz-content>
       <div nz-row [nzGutter]="[0, 20]">
         @for (product of products; track product.id) {
-        <div nz-col nzSpan="24">
-          <nz-card
-            nzTitle="{{ product.name }}"
-            [nzExtra]="extraTemplate"
-            nzHoverable="true"
-          >
-            {{ product.description }}
-          </nz-card>
-          <ng-template #extraTemplate>
-            <nz-tag>
-              {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
-            </nz-tag>
-            <button
-              nz-button
-              nzType="primary"
-              (click)="addProductToCart(product)"
-            >
-              Add to cart
-            </button>
-          </ng-template>
-        </div>
+        <app-product-card
+          nz-col
+          nzSpan="24"
+          [product]="product"
+          (onAddToCart)="addProductToCart(product)"
+        />
         }
       </div>
     </nz-content>
@@ -58,10 +43,7 @@
         <div nz-col>
           <nz-select nzSize="large" [(ngModel)]="productsPerPage">
             @for (option of productsPerPageOptions; track $index) {
-            <nz-option
-              [nzValue]="option"
-              nzLabel="{{ option }} per Page"
-            ></nz-option>
+            <nz-option [nzValue]="option" nzLabel="{{ option }} per Page" />
             }
           </nz-select>
         </div>

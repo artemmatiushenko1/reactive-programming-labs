@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartDetailComponent } from './cart-detail/cart-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { RouterModule } from '@angular/router';
     CartSummaryComponent,
     CartDetailComponent,
     CheckoutComponent,
+    ProductCardComponent,
   ],
   exports: [
     StoreComponent,
