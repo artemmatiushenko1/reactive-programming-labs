@@ -1,5 +1,12 @@
 <nz-layout class="layout">
-  <nz-header class="header">SPORTS STORE</nz-header>
+  <nz-header class="header">
+    <div nz-row nzJustify="space-between">
+      <div nz-col>SPORT SHOP</div>
+      <div nz-col>
+        <cart-summary></cart-summary>
+      </div>
+    </div>
+  </nz-header>
   <nz-layout class="layout-inner">
     <nz-sider nzTheme="light">
       <nz-radio-group
@@ -34,6 +41,13 @@
               <nz-tag>
                 {{ product.price | currency : "USD" : "symbol" : "2.2-2" }}
               </nz-tag>
+              <button
+                nz-button
+                nzType="primary"
+                (click)="addProductToCart(product)"
+              >
+                Add to cart
+              </button>
             </ng-template>
           </div>
           }

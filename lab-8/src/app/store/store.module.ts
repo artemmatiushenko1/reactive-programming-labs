@@ -10,7 +10,13 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
 import { CounterDirective } from './counter.directive';
+import { CartSummaryComponent } from './cart-summary.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -24,8 +30,12 @@ import { CounterDirective } from './counter.directive';
     NzRadioModule,
     NzSpaceModule,
     NzSelectModule,
+    HttpClientModule,
+    NzIconModule,
+    NzBadgeModule,
+    NzButtonModule,
   ],
-  declarations: [StoreComponent, CounterDirective],
+  declarations: [StoreComponent, CounterDirective, CartSummaryComponent],
   exports: [StoreComponent],
 })
 export class StoreModule {}
