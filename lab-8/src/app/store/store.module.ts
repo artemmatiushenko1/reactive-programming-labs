@@ -17,6 +17,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { CounterDirective } from './counter.directive';
 import { CartSummaryComponent } from './cart-summary.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartDetailComponent } from './cart-detail.component';
+import { CheckoutComponent } from './checkout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -34,8 +37,15 @@ import { HttpClientModule } from '@angular/common/http';
     NzIconModule,
     NzBadgeModule,
     NzButtonModule,
+    RouterModule,
   ],
-  declarations: [StoreComponent, CounterDirective, CartSummaryComponent],
-  exports: [StoreComponent],
+  declarations: [
+    StoreComponent,
+    CounterDirective,
+    CartSummaryComponent,
+    CartDetailComponent,
+    CheckoutComponent,
+  ],
+  exports: [StoreComponent, CartDetailComponent, CheckoutComponent],
 })
 export class StoreModule {}

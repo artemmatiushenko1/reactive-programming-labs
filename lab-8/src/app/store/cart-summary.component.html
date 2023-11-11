@@ -12,7 +12,12 @@
   </div>
   <div nz-col>
     <nz-badge [nzCount]="cart.itemCount">
-      <button nz-button nzShape="circle" [disabled]="cart.itemCount === 0">
+      <button
+        nz-button
+        nzShape="circle"
+        [disabled]="cart.itemCount === 0"
+        routerLink="/cart"
+      >
         <span nz-icon nzType="shopping" nzTheme="outline"></span>
       </button>
     </nz-badge>

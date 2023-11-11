@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from './store/store.module';
+import { RouterModule } from '@angular/router';
+import { StoreComponent } from './store/store.component';
+import { CartDetailComponent } from './store/cart-detail.component';
+import { CheckoutComponent } from './store/checkout.component';
+import { StoreFirstGuard } from './store-first.guard';
 
 registerLocaleData(en);
 
@@ -21,8 +26,26 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule,
+    RouterModule.forRoot([
+      {
+        path: 'store',
+        component: StoreComponent,
+        canActivate: [StoreFirstGuard],
+      },
+      {
+        path: 'cart',
+        component: CartDetailComponent,
+        canActivate: [StoreFirstGuard],
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent,
+        canActivate: [StoreFirstGuard],
+      },
+      { path: '**', redirectTo: '/store' },
+    ]),
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, StoreFirstGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
