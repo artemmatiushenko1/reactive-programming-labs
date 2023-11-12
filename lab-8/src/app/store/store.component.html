@@ -42,7 +42,11 @@
           </nz-radio-group>
         </div>
         <div nz-col>
-          <nz-select nzSize="large" [(ngModel)]="productsPerPage">
+          <nz-select
+            nzSize="large"
+            [ngModel]="productsPerPage"
+            (ngModelChange)="changePageSize($event)"
+          >
             @for (option of productsPerPageOptions; track $index) {
             <nz-option [nzValue]="option" nzLabel="{{ option }} per Page" />
             }
