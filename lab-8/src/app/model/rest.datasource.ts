@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from './product.model';
 import { Order } from './order.model';
+
 const PROTOCOL = 'http';
 const PORT = 3500;
 
@@ -20,5 +21,9 @@ export class RestDataSource {
 
   saveOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(this.baseUrl + 'orders', order);
+  }
+
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.baseUrl + 'orders');
   }
 }
