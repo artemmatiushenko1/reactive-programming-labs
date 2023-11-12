@@ -70,7 +70,7 @@ export class CheckoutComponent {
 
     this.repository
       .saveOrder(Object.assign(this.order, newOrderPayload))
-      .subscribe((order) => {
+      .subscribe(() => {
         this.order.clear();
         this.orderSent = true;
         this.submitted = false;

@@ -8,7 +8,7 @@ class ProductRepository {
   private categories: string[] = [];
 
   constructor(private dataSource: StaticDataSource) {
-    dataSource.getProducts().subscribe((data) => {
+    this.dataSource.getProducts().subscribe((data) => {
       this.products = data;
       this.categories = data
         .map((p) => p.category ?? '(None)')
@@ -18,13 +18,7 @@ class ProductRepository {
   }
 
   getProducts(category?: string): Product[] {
-    return this.products.filter(
-      (p) => category === undefined || category === p.category
-    );
-  }
-
-  getProduct(id: number): Product | undefined {
-    return this.products.find((p) => p.id === id);
+    return this.products.filter((p) => !category || category === p.category);
   }
 
   getCategories(): string[] {
